@@ -1,1 +1,18 @@
 
+#!/usr/bin/python
+
+import smbus
+import time
+
+bus = smbus.SMBus(1)
+
+DEVICE_ADDRESS = 0x54
+
+
+while True:
+    word = bus.read_byte_data(DEVICE_ADDRESS, 0)
+    print hex(word)
+    word1 = bus.read_byte_data(DEVICE_ADDRESS, 1)
+    print hex(word1)
+    time.sleep(0.1)
+    
