@@ -14,5 +14,5 @@ while True:
     print 'word2 is {}'.format(hex(word))
     word1 = bus.read_byte_data(DEVICE_ADDRESS, 1)
     print 'word1 is {}'.format(hex(word1))
-    time.sleep(0.1)
+    time.sleep(1)
     
