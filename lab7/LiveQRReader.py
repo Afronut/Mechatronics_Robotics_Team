@@ -27,7 +27,7 @@ while True:
 	# grab the frame from the threaded video stream and resize it to
 	# have a maximum width of 400 pixels
 	frame = vs.read()
-	frame = imutils.resize(frame, width=800)
+	frame = imutils.resize(frame, width=600)
  
 	# find the barcodes in the frame and decode each of the barcodes
 	barcodes = pyzbar.decode(frame)
