@@ -27,14 +27,9 @@ GPIO.output(13, GPIO.HIGH)
 time.sleep(5)
 
 # Drive the motor counterclockwise
+print "Counterclock"
 GPIO.output(6, GPIO.LOW) # Set AIN1
 GPIO.output(5, GPIO.HIGH) # Set AIN2
-
-# Set the motor speed
-GPIO.output(4, GPIO.HIGH) # Set PWMA
-
-# Disable STBY (standby)
-GPIO.output(13, GPIO.HIGH)
 
 # Wait 5 seconds
 time.sleep(5)
