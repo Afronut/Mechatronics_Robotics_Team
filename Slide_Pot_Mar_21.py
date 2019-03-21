@@ -5,7 +5,7 @@ import time
 import RPi.GPIO as GPIO
 
 # Declare the GPIO settings
-GPIO.setmode(GPIO.BOARD)
+GPIO.setmode(GPIO.BCM)
 
 # set up GPIO pins
 GPIO.setup(4, GPIO.OUT) # Connected to PWMA
