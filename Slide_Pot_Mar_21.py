@@ -27,7 +27,7 @@ GPIO.output(13, GPIO.HIGH)
 time.sleep(2.5)
 GPIO.output(4, GPIO.LOW) # Set PWMA
 time.sleep(2.5)
-GIPO.output(4,GPIO.HIGH)
+GPIO.output(4,GPIO.HIGH)
 
 # Drive the motor counterclockwise
 print "Counterclock"
