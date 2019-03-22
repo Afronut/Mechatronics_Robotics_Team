@@ -3,7 +3,7 @@
 # Import required modules
 import time
 import RPi.GPIO as GPIO
-
+dc=50
 GPIO.setwarnings(False)
 
 # Declare the GPIO settings
@@ -21,7 +21,7 @@ GPIO.output(5, GPIO.LOW) # Set AIN2
 
 # Set the motor speed
 pwm=GPIO.PWM(18, 50) # Set PWMA
-pwm.start(95)
+pwm.start(dc)
 
 # Disable STBY (standby)
 GPIO.output(13, GPIO.HIGH)
@@ -30,7 +30,7 @@ GPIO.output(13, GPIO.HIGH)
 time.sleep(2.5)
 pwm.stop() # Set PWMA
 time.sleep(2.5)
-pwm.start(95)
+pwm.start(dc)
 
 # Drive the motor counterclockwise
 print "Counterclock"
