@@ -10,7 +10,7 @@ GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
 
 # set up GPIO pins
-GPIO.setup(4, GPIO.OUT) # Connected to PWMA
+GPIO.setup(18, GPIO.OUT) # Connected to PWMA
 GPIO.setup(5, GPIO.OUT) # Connected to AIN2
 GPIO.setup(6, GPIO.OUT) # Connected to AIN1
 GPIO.setup(13, GPIO.OUT) # Connected to STBY
@@ -20,16 +20,17 @@ GPIO.output(6, GPIO.HIGH) # Set AIN1
 GPIO.output(5, GPIO.LOW) # Set AIN2
 
 # Set the motor speed
-GPIO.output(4, GPIO.HIGH) # Set PWMA
+pwm=GPIO.PWM(18, 50) # Set PWMA
+pwm.start(95)
 
 # Disable STBY (standby)
 GPIO.output(13, GPIO.HIGH)
 
 # Wait 5 seconds
 time.sleep(2.5)
-GPIO.output(4, GPIO.LOW) # Set PWMA
+pwm.stop() # Set PWMA
 time.sleep(2.5)
-GPIO.output(4,GPIO.HIGH)
+pwm.start(95)
 
 # Drive the motor counterclockwise
 print "Counterclock"
@@ -42,5 +43,5 @@ time.sleep(5)
 # Reset all the GPIO pins by setting them to LOW
 GPIO.output(6, GPIO.LOW) # Set AIN1
 GPIO.output(5, GPIO.LOW) # Set AIN2
-GPIO.output(4, GPIO.LOW) # Set PWMA
+pwm.stop()  # Set PWMA
 GPIO.output(13, GPIO.LOW) # Set STBY
