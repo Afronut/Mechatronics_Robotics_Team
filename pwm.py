@@ -3,7 +3,7 @@
 # Import required modules
 import time
 import RPi.GPIO as GPIO
-dc=50
+dc=60
 GPIO.setwarnings(False)
 
 # Declare the GPIO settings
