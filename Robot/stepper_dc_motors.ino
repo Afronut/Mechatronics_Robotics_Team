@@ -20,6 +20,8 @@ Adafruit_StepperMotor *myMotor = AFMS.getStepper(200, 2);
 
 boolean pullUp = false;
 boolean pullDown = false;
+uint8_t i;
+speed = 100;
 
 Adafruit_DCMotor *myMotor1 = AFMS.getMotor(1);
 Adafruit_DCMotor *myMotor2 = AFMS.getMotor(2);
@@ -54,45 +56,8 @@ void setup() {
 }
 
 void loop() {
-  uint8_t i;
   
-  Serial.print("tick");
-
-  myMotor1->run(FORWARD);
-  myMotor2->run(FORWARD);
-  for (i=0; i<255; i++) {
-    myMotor1->setSpeed(i);  
-     myMotor2->setSpeed(i);  
-    delay(10);
-  }
-  for (i=255; i!=0; i--) {
-    myMotor1->setSpeed(i);  
-     myMotor2->setSpeed(i); 
-    delay(10);
-  }
-  
-  Serial.print("tock");
-
-  myMotor1->run(BACKWARD);
-    myMotor2->run(BACKWARD);
-
-  for (i=0; i<255; i++) {
-    myMotor1->setSpeed(i); 
-        myMotor2->setSpeed(i);  
  
-    delay(10);
-  }
-  for (i=255; i!=0; i--) {
-    myMotor1->setSpeed(i); 
-        myMotor2->setSpeed(i);  
- 
-    delay(10);
-  }
-
-  Serial.print("tech");
-  myMotor1->run(RELEASE);
-    myMotor2->run(RELEASE);
-
 if (pullUp == false) {
  doubleCoilStepper();
  pullUp = true; 
@@ -111,13 +76,45 @@ if (pullDown == false) {
   
 }
 
-void singleCoilStepper()
+
+void dcRelease(){
+ myMotor1->run(RELEASE);
+ myMotor2->run(RELEASE);
+ }
+
+void dcForward() 
+{
+    Serial.print("DC forward");
+  
+    myMotor1->run(FORWARD);
+    myMotor2->run(FORWARD);  
+  
+    myMotor1->setSpeed(speed);  
+    myMotor2->setSpeed(speed);  
+  
+    delay(10);
+  }
+
+void dcBackward()
+  {   
+  Serial.print("DC Backward");
+
+  myMotor1->run(BACKWARD);
+  myMotor2->run(BACKWARD);  
+ 
+  myMotor1->setSpeed(speed); 
+  myMotor2->setSpeed(speed);  
+ 
+  delay(10);
+  }
+
+void stepperUp()
 {
  Serial.println("Single coil steps");
  myMotor->step(500, FORWARD, DOUBLE);
  }
 
-void doubleCoilStepper()
+void steppperDown()
 {
   Serial.println("Double coil steps");
   myMotor->step(500, BACKWARD, DOUBLE);
