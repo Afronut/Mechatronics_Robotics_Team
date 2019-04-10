@@ -14,6 +14,7 @@ GPIO.setup(18, GPIO.OUT)  # Connected to PWMA
 GPIO.setup(5, GPIO.OUT)  # Connected to AIN2
 GPIO.setup(6, GPIO.OUT)  # Connected to AIN1
 GPIO.setup(13, GPIO.OUT)  # Connected to STBY
+pwm = GPIO.PWM(18, 50)  # Set PWMA
 
 
 def ballScrewForward():
@@ -22,7 +23,6 @@ def ballScrewForward():
     GPIO.output(5, GPIO.LOW)  # Set AIN2
 
     # Set the motor speed
-    pwm = GPIO.PWM(18, 50)  # Set PWMA
     pwm.start(dc)
 
     # Disable STBY (standby)
@@ -45,11 +45,9 @@ def ballScrewBackward():
     time.sleep(5)
 
 
-def resetPins()
-
-
-# Reset all the GPIO pins by setting them to LOW
-GPIO.output(6, GPIO.LOW)  # Set AIN1
-GPIO.output(5, GPIO.LOW)  # Set AIN2
-pwm.stop()  # Set PWMA
-GPIO.output(13, GPIO.LOW)  # Set STBY
+def resetPins():
+    # Reset all the GPIO pins by setting them to LOW
+    GPIO.output(6, GPIO.LOW)  # Set AIN1
+    GPIO.output(5, GPIO.LOW)  # Set AIN2
+    pwm.stop()  # Set PWMA
+    GPIO.output(13, GPIO.LOW)  # Set STBY
