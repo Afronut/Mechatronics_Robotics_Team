@@ -12,9 +12,9 @@ while True:
 	command = raw_input('Enter your command: ')
 	s.send(command)
 	reply = s.recv(1024)
-	if reply :
-		code = br.barcode_funder()
-                if code !='':
-		    s.send(code)
+	if reply:
+		code = barcode_funder()
+		if code != '':
+			s.send(code)
 	print code 
         code = ''
