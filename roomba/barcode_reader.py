@@ -46,8 +46,8 @@ def barcode_funder():
             barcodeData = barcode.data.decode("utf-8")  # THIS IS IMPORTANT
             barcodeType = barcode.type
             BarCodes.append(barcodeData)
-            return barcode
-            # print(BarCodes)
+            return barcodeData
+            # print(Bardata)
             # draw the barcode data and barcode type on the image
             text = "{} ({})".format(barcodeData, barcodeType)
             cv2.putText(frame, text, (x, y - 10),
