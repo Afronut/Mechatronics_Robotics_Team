@@ -1,5 +1,5 @@
 import socket
-from roomba.barcode_reader import*
+import barcode_reader as br
 
 HOST = '10.201.92.66'  # Enter IP or Hostname of your server
 # Pick 345an open Port (1000+ recommended), must match the server port
@@ -13,7 +13,7 @@ while True:
 	s.send(command)
 	reply = s.recv(1024)
 	if reply:
-		code = barcode_funder()
+		code = br.barcode_funder()
 		if code != '':
 			s.send(code)
 	print code 
