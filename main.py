@@ -1,6 +1,5 @@
 from roomba.ballScrew import*
 from roomba.barcode_reader import *
-from time import sleep
 
-print(barcode_funder())
- 
+if __name__ == "__main__":
+    print(barcode_funder())
