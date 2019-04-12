@@ -13,7 +13,7 @@ while True:
 	s.send(command)
 	reply = s.recv(1024)
 	if reply:
-		code = br.barcode_funder()
+		code, a,b,c = br.barcode_funder()
 		if code != '':
 			s.send(code)
 	print code 
