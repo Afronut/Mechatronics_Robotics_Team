@@ -6,6 +6,7 @@ line = ser.write(b'up')
 sleep(1)
 while True:
   ser.write(b'down')
+  Serial.flush()
   line= ser.readline()
   print(line)
   sleep(2)
