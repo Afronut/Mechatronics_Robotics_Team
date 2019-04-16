@@ -8,3 +8,4 @@ while True:
   line = ser.write(b'up')
   line= ser.readline()
   print(line)
+  sleep(2)
