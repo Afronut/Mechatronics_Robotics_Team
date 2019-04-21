@@ -1,5 +1,5 @@
 import networkx as nx
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 
 
 def front_rack_finder(tag='<x: 064.5, y: 026.0> [RtRack 05, col 1, LfRack 25, col 5]'):
@@ -94,8 +94,8 @@ def path_finder(start, end):
     # print(inter_path_position)
     # print(path_position)
     # print(path)
-    nx.draw(g, with_labels=True, font_weight='bold')
-    plt.show()
+    # nx.draw(g, with_labels=True, font_weight='bold')
+    # plt.show()
     return path_position, inter_path_position
 
 
