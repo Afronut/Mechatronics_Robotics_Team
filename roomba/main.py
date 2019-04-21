@@ -16,14 +16,13 @@ try:
 	s.bind(("", PORT))
 except socket.error:
 	print 'Bind failed'
-    return
-	
+
 s.listen(5)
 print 'Socket awaiting messages'
 (conn, addr) = s.accept()
 print 'Connected'
-ballScrew_is_forward=False
-ballScrew_is_backward=True
+ballScrew_is_forward = False
+ballScrew_is_backward = True
 # awaiting for message
 while True:
 	try:
@@ -32,12 +31,12 @@ while True:
 		pass
 	# process your message
 	if data == None or data == '':
-		barcode=barcode_funder()
+		barcode = barcode_funder()
 		decoded = string_processor(barcode)
 		connection.write('Hello there')
 	if data == 'pallet_picked':
 		send_arduino_message('90')
-		data=''
+		data = ''
     elif data =='':
 		
 	conn.send(reply)
