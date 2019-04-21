@@ -2,8 +2,10 @@ import socket
 from roomba.ballScrew import ballScrewForward, ballScrewBackward
 from roomba.ardiuno2pi import send_arduino_message
 from roomba.barcode_reader import barcode_funder, string_processor
-
-HOST = socket.gethostname()  # Server IP or Hostname
+from nanpy import SerialManager
+# Server IP or Hostname
+connection = SerialManager(device='/dev/ttyUSB0')
+HOST = socket.gethostname()
 # Pick an open Port (1000+ recommended), must match the client sport
 PORT = 12397
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -31,7 +33,8 @@ while True:
 	# process your message
 	if data == None or data == '':
 		barcode=barcode_funder()
-		decoded=string_processor(barcode)
+		decoded = string_processor(barcode)
+		connection.write('Hello there')
 	if data == 'pallet_picked':
 		send_arduino_message('90')
 		data=''

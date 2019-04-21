@@ -91,9 +91,9 @@ def path_finder(start, end):
     inter_path_position = []
     for node in inter_path:
         inter_path_position.append(g.nodes[node]['pos'])
-    print(inter_path_position)
-    print(path_position)
-    print(path)
+    # print(inter_path_position)
+    # print(path_position)
+    # print(path)
     nx.draw(g, with_labels=True, font_weight='bold')
     plt.show()
     return path_position, inter_path_position
