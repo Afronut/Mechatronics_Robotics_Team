@@ -10,24 +10,33 @@ from roomba.map import*
 Thread(target=run_server).start()
 assignement=None
 try:
-    connection = SerialManager(device='/dev/ttyACM0')
+    arduino = SerialManager(device='/dev/ttyACM0')
 except:
     pass
 
 while True:
-    connection.write('Hi there')
-    sleep(2)
-    message=connection.readline()
-    if message:
-        print(message)
-    else:
-        print('no message yet')
-    sleep(2)
+    #connection.write('Hi there')
+    #sleep(2)
+    #message=connection.readline()
+    #if message:
+     #   print(message)
+    #else:
+   #     print('no message yet')
+    #sleep(2)
     if not assignement:
-        assignement=barcode_funder()
+        assignement=barcode_funder()[0]
+        print (assignement)
+    sleep(4)
     pallet, rack, row, col,dock=rack_finder(assignement)
-    code=barcode_funder()
+    code=barcode_funder()[0]
     start=floor_finder(code)
     end=rack['rack_id']
-    path_to_take=path_finder(start[2],end)
+    path_to_take=path_finder(start[1],end)
     print(path_to_take)
+    arduino.write("go_straight")
+    sleep(2)
+    message=arduino.readline()
+    if message:
+        print (message)
+    else:
+        print('receive no message')

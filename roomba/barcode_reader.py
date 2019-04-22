@@ -71,3 +71,7 @@ def barcode_funder():
 
 def string_processor(barcode):
     pass
+
+if __name__=="__main__":
+    print(barcode_funder())
+
