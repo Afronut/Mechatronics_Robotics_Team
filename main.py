@@ -39,6 +39,6 @@ while True:
 #         print (message)
 #     else:
 #         print('receive no message')
-    While True:
+    while True:
         code=barcode_funder()[0]
         print(code)
