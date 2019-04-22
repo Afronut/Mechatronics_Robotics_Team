@@ -27,11 +27,11 @@ while True:
         assignement=barcode_funder()[0]
         print (assignement)
     sleep(4)
-    pallet, rack, row, col,dock=rack_finder(assignement)
-    code=barcode_funder()[0]
-    start=floor_finder(code)
-    end=rack['rack_id']
-    path_to_take=path_finder(start[1],end)
+#     pallet, rack, row, col,dock=rack_finder(assignement)
+#     code=barcode_funder()[0]
+#     start=floor_finder(code)
+#     end=rack['rack_id']
+#     path_to_take=path_finder(start[1],end)
     sleep(2)
     arduino.write("go_straight")
 #     message=arduino.readline()
