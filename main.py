@@ -32,11 +32,13 @@ while True:
     start=floor_finder(code)
     end=rack['rack_id']
     path_to_take=path_finder(start[1],end)
-    print(path_to_take)
-    arduino.write("go_straight")
     sleep(2)
-    message=arduino.readline()
-    if message:
-        print (message)
-    else:
-        print('receive no message')
+    arduino.write("go_straight")
+#     message=arduino.readline()
+#     if message:
+#         print (message)
+#     else:
+#         print('receive no message')
+    for path in path_to_take:
+        code=barcode_funder()[0]
+        print(code)
