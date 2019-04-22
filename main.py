@@ -39,6 +39,6 @@ while True:
 #         print (message)
 #     else:
 #         print('receive no message')
-    for path in path_to_take:
+    While True:
         code=barcode_funder()[0]
         print(code)
