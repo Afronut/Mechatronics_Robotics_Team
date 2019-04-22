@@ -42,3 +42,6 @@ while True:
     while True:
         code=barcode_funder()[0]
         print(code)
+        sleep(4)
+
+        
