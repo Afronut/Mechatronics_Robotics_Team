@@ -37,7 +37,7 @@ GPIO.output(6, GPIO.LOW) # Set AIN1
 GPIO.output(5, GPIO.HIGH) # Set AIN2
 
 # Wait 5 seconds
-time.sleep(5)
+time.sleep(2.5)
 
 # Reset all the GPIO pins by setting them to LOW
 GPIO.output(6, GPIO.LOW) # Set AIN1
