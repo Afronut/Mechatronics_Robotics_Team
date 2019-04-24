@@ -28,19 +28,19 @@ pwm.start(50)
 GPIO.output(13, GPIO.HIGH)
 
 # Wait 5 seconds
-time.sleep(10)
+time.sleep(15)
 # GPIO.output(18, GPIO.LOW) # Set PWMA
 # time.sleep(2.5)
 # # pwm = GPIO.PWM(18, 1000)
 # pwm.start(50)
-
+time.sleep(2)
 # Drive the motor counterclockwise
 print "Counterclock"
 GPIO.output(6, GPIO.LOW) # Set AIN1
 GPIO.output(5, GPIO.HIGH) # Set AIN2
 
 # Wait 5 seconds
-time.sleep(10)
+time.sleep(15)
 
 # Reset all the GPIO pins by setting them to LOW
 GPIO.output(6, GPIO.LOW) # Set AIN1
