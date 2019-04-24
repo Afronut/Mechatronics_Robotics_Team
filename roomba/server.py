@@ -37,7 +37,7 @@ def run_server():
             st.received_message.append(data)
         except:
             print("something happened to server")
-        print(st.send_message[0])
+        print(st.received_message[0])
 
         # process your message
 # if data == 'Hello':
