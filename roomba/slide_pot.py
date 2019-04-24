@@ -19,7 +19,7 @@ def forward():
   try:
     pwm = GPIO.PWM(18, 1000)
   except RuntimeError:
-    pass
+    print('error')
   # Drive the motor clockwise
   GPIO.output(6, GPIO.HIGH) # Set AIN1
   GPIO.output(5, GPIO.LOW) # Set AIN2
