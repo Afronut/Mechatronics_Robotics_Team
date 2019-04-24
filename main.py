@@ -8,6 +8,8 @@ import roomba.setting as st
 from time import sleep
 from roomba.map import*
 from roomba.slide_pot import forward, backward
+import time
+import RPi.GPIO as GPIO
 # Thread(target=run_server).start()
 assignement=None
 try:
@@ -16,6 +18,12 @@ except:
     pass
 
 while True:
+    # Import required modules
+
+
+
+    pwm = GPIO.PWM(18, 1000)
+  
     #connection.write('Hi there')
     #sleep(2)
     #message=connection.readline()
@@ -24,9 +32,9 @@ while True:
     #else:
    #     print('no message yet')
     #sleep(2)
-    forward()
+    forward(pwm)
     sleep(2)
-    backward()
+    backward(pwm)
     if not assignement:
         assignement=barcode_funder()[0]
         print (assignement)
