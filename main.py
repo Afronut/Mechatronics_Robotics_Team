@@ -30,19 +30,29 @@ while True:
         assignement = barcode_funder()[0]
         print(assignement)
     sleep(4)
-    #     pallet, rack, row, col,dock=rack_finder(assignement)
-    #     code=barcode_funder()[0]
-    #     start=floor_finder(code)
-    #     end=rack['rack_id']
-    #     path_to_take=path_finder(start[1],end)
+    pallet, rack, row, col, dock = rack_finder(assignement)
+    code = barcode_funder()[0]
+    start = floor_finder(code)
+    end = rack['rack_id']
+    path_to_take, inter = path_finder(start[1], end)
     sleep(2)
-    arduino.write("go_straight")
+    arduino.write("line")
 # #     message=arduino.readline()
 # #     if message:
 # #         print (message)
 # #     else:
 # #         print('receive no message')
-    while True:
+    for i in range(len(path_to_take)):
         code = barcode_funder()[0]
-        print(code)
+        floor = floor_finder(code)[0]
+        path = path_to_take[i]
+        if path in path_to_take:
+            if path in inter:
+                arduino.write(turn_finder(path))
+                sleep(6)
+                arduino.write('line')
+            else:
+                pass
+        else:
+            path_to_take = path_finder(code[1])
         sleep(4)
