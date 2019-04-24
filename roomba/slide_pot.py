@@ -15,11 +15,7 @@ GPIO.setup(5, GPIO.OUT) # Connected to AIN2
 GPIO.setup(6, GPIO.OUT) # Connected to AIN1
 GPIO.setup(13, GPIO.OUT) # Connected to STBY
 
-def forward():
-  try:
-    pwm = GPIO.PWM(18, 1000)
-  except RuntimeError:
-    print('error')
+def forward(pwm):
   # Drive the motor clockwise
   GPIO.output(6, GPIO.HIGH) # Set AIN1
   GPIO.output(5, GPIO.LOW) # Set AIN2
@@ -43,11 +39,7 @@ def forward():
   pwm.stop()
   GPIO.output(13, GPIO.LOW) # Set STBY
   
-def backward():
-  try:
-    pwm = GPIO.PWM(18, 1000)
-  except RuntimeError:
-    pass
+def backward(pwm):
   # Drive the motor counterclockwise
   print "Counterclock"
   GPIO.output(6, GPIO.LOW) # Set AIN1
