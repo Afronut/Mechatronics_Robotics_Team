@@ -14,7 +14,10 @@ GPIO.setup(18, GPIO.OUT) # Connected to PWMA
 GPIO.setup(5, GPIO.OUT) # Connected to AIN2
 GPIO.setup(6, GPIO.OUT) # Connected to AIN1
 GPIO.setup(13, GPIO.OUT) # Connected to STBY
-pwm = GPIO.PWM(18, 1000)
+try:
+  pwm = GPIO.PWM(18, 1000)
+execpt RuntimeError:
+  pass
 def forward():
   # Drive the motor clockwise
   GPIO.output(6, GPIO.HIGH) # Set AIN1
