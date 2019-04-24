@@ -31,7 +31,7 @@ GPIO.output(13, GPIO.HIGH)
 time.sleep(2.5)
 GPIO.output(18, GPIO.LOW) # Set PWMA
 time.sleep(2.5)
-pwm = GPIO.PWM(18, 1000)
+# pwm = GPIO.PWM(18, 1000)
 pwm.start(50)
 
 # Drive the motor counterclockwise
