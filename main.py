@@ -7,7 +7,7 @@ from roomba.server import run_server
 import roomba.setting as st
 from time import sleep
 from roomba.map import*
-from roomba.slide_pot import*
+from roomba.slide_pot import forward, backward
 # Thread(target=run_server).start()
 assignement=None
 try:
