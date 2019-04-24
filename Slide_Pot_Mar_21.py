@@ -35,6 +35,7 @@ time.sleep(18)
 # pwm.start(50)
 pwm.stop()
 time.sleep(2)
+pwm.start()
 # Drive the motor counterclockwise
 print "Counterclock"
 GPIO.output(6, GPIO.LOW) # Set AIN1
