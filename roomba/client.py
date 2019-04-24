@@ -11,20 +11,19 @@ s.connect((HOST, PORT))
 
 # Import required modules
 
-GPIO.setwarnings(False)
-
-# Declare the GPIO settings
-GPIO.setmode(GPIO.BCM)
-
-# set up GPIO pins
-GPIO.setup(5, GPIO.OUT)  # Connected to AIN2
-GPIO.setup(6, GPIO.OUT)  # Connected to AIN1
-GPIO.setup(13, GPIO.OUT)  # Connected to STBY
-GPIO.setup(18, GPIO.OUT)  # Connected to PWMA
-# Thread(target=run_server).start()
-
 
 def forward():
+    GPIO.setwarnings(False)
+
+    # Declare the GPIO settings
+    GPIO.setmode(GPIO.BCM)
+
+    # set up GPIO pins
+    GPIO.setup(5, GPIO.OUT)  # Connected to AIN2
+    GPIO.setup(6, GPIO.OUT)  # Connected to AIN1
+    GPIO.setup(13, GPIO.OUT)  # Connected to STBY
+    GPIO.setup(18, GPIO.OUT)  # Connected to PWMA
+    # Thread(target=run_server).start()
     pwm = GPIO.PWM(18, 1000)
     # Drive the motor clockwise
     GPIO.output(6, GPIO.HIGH)  # Set AIN1
@@ -52,6 +51,17 @@ def forward():
 
 
 def backward():
+    GPIO.setwarnings(False)
+
+    # Declare the GPIO settings
+    GPIO.setmode(GPIO.BCM)
+
+    # set up GPIO pins
+    GPIO.setup(5, GPIO.OUT)  # Connected to AIN2
+    GPIO.setup(6, GPIO.OUT)  # Connected to AIN1
+    GPIO.setup(13, GPIO.OUT)  # Connected to STBY
+    GPIO.setup(18, GPIO.OUT)  # Connected to PWMA
+    # Thread(target=run_server).start()
     pwm = GPIO.PWM(18, 1000)
     # Drive the motor counterclockwise
     GPIO.output(6, GPIO.LOW)  # Set AIN1
