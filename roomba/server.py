@@ -1,5 +1,6 @@
 import socket
 import roomba.setting as st
+from time import sleep
 
 
 def run_server():
@@ -7,18 +8,18 @@ def run_server():
     # Pick an open Port (1000+ recommended), must match the client sport
     PORT = 12397
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    print ('Socket created')
+    print('Socket created')
 
     # managing error exception
     try:
         s.bind(("", PORT))
     except socket.error:
-        print ('Bind failed')
+        print('Bind failed')
 
     s.listen(5)
     print('server is runing')
     (conn, addr) = s.accept()
-    print ('Connected')
+    print('Connected')
 
     # awaiting for message
     while True:
