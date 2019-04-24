@@ -16,7 +16,7 @@ GPIO.setup(6, GPIO.OUT) # Connected to AIN1
 GPIO.setup(13, GPIO.OUT) # Connected to STBY
 try:
   pwm = GPIO.PWM(18, 1000)
-execpt RuntimeError:
+except RuntimeError:
   pass
 def forward():
   # Drive the motor clockwise
