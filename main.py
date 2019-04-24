@@ -10,6 +10,7 @@ from roomba.map import*
 from roomba.slide_pot import forward, backward
 import time
 import RPi.GPIO as GPIO
+GPIO.setup(18, GPIO.OUT) # Connected to PWMA
 # Thread(target=run_server).start()
 assignement=None
 try:
