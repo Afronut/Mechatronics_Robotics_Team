@@ -7,6 +7,7 @@ from roomba.server import run_server
 import roomba.setting as st
 from time import sleep
 from roomba.map import*
+from roomba.slide_pot import*
 # Thread(target=run_server).start()
 assignement=None
 try:
@@ -23,6 +24,9 @@ while True:
     #else:
    #     print('no message yet')
     #sleep(2)
+    forward()
+    sleep(2)
+    backward()
     if not assignement:
         assignement=barcode_funder()[0]
         print (assignement)
