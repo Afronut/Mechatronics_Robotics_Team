@@ -37,7 +37,7 @@ def forward():
     GPIO.output(13, GPIO.HIGH)
 
     # Wait 5 seconds
-    time.sleep(25)
+    time.sleep(22)
     # GPIO.output(18, GPIO.LOW) # Set PWMA
     # time.sleep(2.5)
     # # pwm = GPIO.PWM(18, 1000)
