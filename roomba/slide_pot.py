@@ -3,6 +3,8 @@
 # Import required modules
 import time
 import RPi.GPIO as GPIO
+GPIO.cleanup()  
+
 
 GPIO.setwarnings(False)
 
