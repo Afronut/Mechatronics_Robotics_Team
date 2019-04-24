@@ -24,7 +24,6 @@ while True:
     #else:
    #     print('no message yet')
     #sleep(2)
-    pwm = GPIO.PWM(18, 1000)
     forward()
     sleep(2)
     backward()
