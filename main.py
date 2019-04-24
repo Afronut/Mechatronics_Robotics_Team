@@ -1,7 +1,7 @@
 import socket
-# from roomba.ballScrew import ballScrewForward, ballScrewBackward
-# from roomba.barcode_reader import barcode_funder, string_processor
-# from nanpy import SerialManager
+from roomba.ballScrew import ballScrewForward, ballScrewBackward
+from roomba.barcode_reader import barcode_funder, string_processor
+from nanpy import SerialManager
 from threading import Thread
 from roomba.server import run_server
 import roomba.setting as st
