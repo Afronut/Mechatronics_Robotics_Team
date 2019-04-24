@@ -20,7 +20,9 @@ GPIO.output(6, GPIO.HIGH) # Set AIN1
 GPIO.output(5, GPIO.LOW) # Set AIN2
 
 # Set the motor speed
-GPIO.output(4, GPIO.HIGH) # Set PWMA
+# GPIO.output(18, GPIO.HIGH) # Set PWMA
+pwm = GPIO.PWM(18, 1000)
+pwm.start(50)
 
 # Disable STBY (standby)
 GPIO.output(13, GPIO.HIGH)
@@ -29,7 +31,8 @@ GPIO.output(13, GPIO.HIGH)
 time.sleep(2.5)
 GPIO.output(4, GPIO.LOW) # Set PWMA
 time.sleep(2.5)
-GPIO.output(4,GPIO.HIGH)
+pwm = GPIO.PWM(18, 1000)
+pwm.start(50)
 
 # Drive the motor counterclockwise
 print "Counterclock"
