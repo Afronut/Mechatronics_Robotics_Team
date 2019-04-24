@@ -43,6 +43,8 @@ def forward(pwm):
   GPIO.output(5, GPIO.LOW) # Set AIN2
   pwm.stop()
   GPIO.output(13, GPIO.LOW) # Set STBY
+  GPIO.cleanup()  
+
   
 def backward(pwm):
   # Drive the motor counterclockwise
@@ -60,3 +62,5 @@ def backward(pwm):
   GPIO.output(5, GPIO.LOW) # Set AIN2
   pwm.stop()
   GPIO.output(13, GPIO.LOW) # Set STBY
+  GPIO.cleanup()  
+
