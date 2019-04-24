@@ -13,6 +13,10 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(5, GPIO.OUT) # Connected to AIN2
 GPIO.setup(6, GPIO.OUT) # Connected to AIN1
 GPIO.setup(13, GPIO.OUT) # Connected to STBY
+GPIO.setup(18, GPIO.OUT) # Connected to PWMA
+# Thread(target=run_server).start()
+pwm = GPIO.PWM(18, 1000)
+  
 
 def forward(pwm):
   # Drive the motor clockwise
