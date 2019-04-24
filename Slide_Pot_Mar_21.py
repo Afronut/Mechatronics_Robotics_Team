@@ -28,7 +28,7 @@ pwm.start(50)
 GPIO.output(13, GPIO.HIGH)
 
 # Wait 5 seconds
-time.sleep(20)
+time.sleep(25)
 # GPIO.output(18, GPIO.LOW) # Set PWMA
 # time.sleep(2.5)
 # # pwm = GPIO.PWM(18, 1000)
@@ -43,7 +43,7 @@ pwm.start(50)
 
 
 # Wait 5 seconds
-time.sleep(20)
+time.sleep(25)
 
 # Reset all the GPIO pins by setting them to LOW
 GPIO.output(6, GPIO.LOW) # Set AIN1
