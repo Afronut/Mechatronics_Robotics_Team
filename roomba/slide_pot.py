@@ -17,10 +17,10 @@ GPIO.setup(6, GPIO.OUT) # Connected to AIN1
 GPIO.setup(13, GPIO.OUT) # Connected to STBY
 GPIO.setup(18, GPIO.OUT) # Connected to PWMA
 # Thread(target=run_server).start()
-pwm = GPIO.PWM(18, 1000)
   
 
-def forward(pwm):
+def forward():
+  pwm = GPIO.PWM(18, 1000)
   # Drive the motor clockwise
   GPIO.output(6, GPIO.HIGH) # Set AIN1
   GPIO.output(5, GPIO.LOW) # Set AIN2
@@ -46,7 +46,8 @@ def forward(pwm):
   GPIO.cleanup()  
 
   
-def backward(pwm):
+def backward():
+  pwm = GPIO.PWM(18, 1000)
   # Drive the motor counterclockwise
   print "Counterclock"
   GPIO.output(6, GPIO.LOW) # Set AIN1
