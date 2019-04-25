@@ -108,7 +108,7 @@ def front_rack_finder(tag='<x: 064.5, y: 026.0> [RtRack 05, col 1, LfRack 25, co
 
 
 def floor_finder(floor='<x: 049.0, y: 013.5> plz!'):
-    floor_pos = floor[1:-5]
+    floor_pos = floor[1:-6]
     x, y = floor_pos.split(',')
     x = x.split(':')
     y = y.split(':')
