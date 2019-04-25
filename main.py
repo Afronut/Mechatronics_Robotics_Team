@@ -36,7 +36,7 @@ while True:
     end = rack['rack_id']
     path_to_take, inter = path_finder(start[1], end)
     sleep(2)
-    arduino.write("line")
+    arduino.write("go_straight")
 # #     message=arduino.readline()
 # #     if message:
 # #         print (message)
@@ -54,6 +54,6 @@ while True:
             else:
                 pass
         else:
-            path_to_take = path_finder(code[1])
+            path_to_take = path_finder(code[1],end)
             i = 0
         sleep(4)
