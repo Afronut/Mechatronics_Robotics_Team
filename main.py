@@ -54,8 +54,9 @@ while True:
         path = path_to_take[i]
         if path in path_to_take:
             if path in inter:
-                m = inter.find(path)
-                arduino.write(turn_finder(path, inter[m]))
+                for inte in inter:
+                    if inte == path:
+                        arduino.write(turn_finder(path, inte))
                 sleep(6)
                 arduino.write('line')
             else:
