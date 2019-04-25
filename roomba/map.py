@@ -192,7 +192,7 @@ def path_finder(start, end):
     # print(inter_path_position)
     # print(path_position)
     # print(path)
-    nx.draw(g, with_labels=True, font_weight='bold')
+    # nx.draw(g, with_labels=True, font_weight='bold')
     # plt.show()
     return path_position, inter_path_position
 
