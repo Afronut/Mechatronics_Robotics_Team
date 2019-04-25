@@ -30,7 +30,7 @@ def barcode_funder():
         # grab the frame from the threaded video stream and resize it to
         # have a maximum width of 400 pixels
         frame = vs.read()
-        frame = imutils.resize(frame, width=600)
+        frame = imutils.resize(frame, width=700)
 
         # find the barcodes in the frame and decode each of the barcodes
         barcodes = pyzbar.decode(frame)
@@ -72,6 +72,6 @@ def barcode_funder():
 def string_processor(barcode):
     pass
 
-if __name__=="__main__":
-    print(barcode_funder())
 
+if __name__ == "__main__":
+    print(barcode_funder())
