@@ -55,4 +55,5 @@ while True:
                 pass
         else:
             path_to_take = path_finder(code[1])
+            i = 0
         sleep(4)

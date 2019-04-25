@@ -56,10 +56,10 @@ def turn_finder(path, inter):
             # print(abs(path[i][1] - path[i - 1][1]), i)
             if (top_side or lower_top_side or high_bottom_side or bottom_side) and not is_dec_x and abs(path[i][1] - path[i - 1][1]) <= .5 and abs(path[i][1] - path[i + 1][1]) <= .5:
                 # print('1')
-                return 'line'
+                return 'go_straight'
             if (right_side or left_side or middle) and is_dec_y and abs(path[i][1] - path[i - 1][1]) <= .5 and abs(path[i][1] - path[i + 1][1]) <= .5:
                     # print('1')
-                return 'line'
+                return 'go_straight'
             if (top_side or lower_top_side or high_bottom_side or bottom_side) and not is_dec_x and path[i][1] > path[i + 1][1]:
                 # print('2')
                 return 'turn_right'
@@ -75,7 +75,7 @@ def turn_finder(path, inter):
 
             if (right_side or left_side or middle) and is_dec_y and abs(path[i][0] - path[i - 1][0]) <= .5 and abs(path[i][0] - path[i + 1][0]) <= .5:
                 # print(6)
-                return 'line'
+                return 'go_straight'
             if (right_side or left_side or middle) and  is_dec_y and path[i][0] > path[i + 1][0]:
                 # print(7)
                 return 'turn_right'
