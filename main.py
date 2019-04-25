@@ -33,10 +33,13 @@ while True:
     pallet, rack, row, col, dock = rack_finder(assignement)
     code = barcode_funder()[0]
     start = floor_finder(code)
+    print(start)
     end = rack['rack_id']
     path_to_take, inter = path_finder(start[1], end)
+    print('got the path {}'.format(path_to_take))
     sleep(2)
     arduino.write("go_straight")
+    print('Leaving for party')
 # #     message=arduino.readline()
 # #     if message:
 # #         print (message)
@@ -54,6 +57,6 @@ while True:
             else:
                 pass
         else:
-            path_to_take = path_finder(code[1],end)
+            path_to_take = path_finder(code[1], end)
             i = 0
         sleep(4)
