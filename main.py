@@ -47,7 +47,7 @@ while True:
 # #         print('receive no message')
     for i in range(len(path_to_take)):
         code = barcode_funder()[0]
-        if code.find('rack') != -1:
+        if code.find('ack') != -1:
             floor = floor_rack_finder()[0]
         else:
             floor = floor_finder(code)[0]
