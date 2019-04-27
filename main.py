@@ -57,8 +57,8 @@ while True:
             start = floor
             print(floor, "rack")
         else:
-            print(floor)
             floor = floor_finder(code)[0]
+            print(floor)
             start = floor
         path = path_to_take[i]
         if path in path_to_take:
