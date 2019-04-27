@@ -47,6 +47,7 @@ while True:
 # #         print('receive no message')
     path_to_take.pop(0)
     for i in range(len(path_to_take)):
+        print(path_to_take)
         code = barcode_funder()[0]
         print(code)
         sleep(1)
