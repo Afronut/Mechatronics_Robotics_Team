@@ -49,29 +49,32 @@ while True:
     for i in range(len(path_to_take)):
         print(path_to_take)
         code = barcode_funder()[0]
+        start = code
         print(code)
         sleep(1)
         if code.find('ack') != -1:
             floor = front_rack_finder()[0]
-            print(floor,"rack")
+            start = floor
+            print(floor, "rack")
         else:
             print(floor)
             floor = floor_finder(code)[0]
+            start = floor
         path = path_to_take[i]
         if path in path_to_take:
             if path in inter:
                 print(path)
                 for inte in inter:
                     if inte == path:
-                        turn=turn_finder(path, inte)
+                        turn = turn_finder(path, inte)
                         print(turn)
-                        if turn!= None:
+                        if turn != None:
                             arduino.write(turn)
                 sleep(6)
                 arduino.write('line')
             else:
                 pass
         else:
-            path_to_take = path_finder(code[1], end)
+            path_to_take = path_finder(start, end)
             i = 0
         sleep(4)
