@@ -59,10 +59,11 @@ while True:
             if path in inter:
                 print(path)
                 for inte in inter:
-                    if inte == path and inte!=None:
+                    if inte == path:
                         turn=turn_finder(path, inte)
                         print(turn)
-                        arduino.write(turn)
+                        if turn!= None:
+                            arduino.write(turn)
                 sleep(6)
                 arduino.write('line')
             else:
