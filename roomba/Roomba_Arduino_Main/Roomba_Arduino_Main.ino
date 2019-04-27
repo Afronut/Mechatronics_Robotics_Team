@@ -44,7 +44,7 @@ int threshold = 500; //this is the threshold value being checked against sensorV
 void setup()
 {
   // Serial.begin(115200);  // BAUD RATE FOR RASPBERRY PI
-  Serial.begin(9600);
+  Serial.begin(115200);
   Serial.println("Main Roomba Code!");
   pinMode(rPin, INPUT);
   pinMode(lPin, INPUT);
@@ -71,14 +71,14 @@ void loop()
 
   if (Serial.available())
   {
-    Serial.println("received"); //if a serial port is available, send a message back to the pi
-    delay(2000);
+//    Serial.println("received"); //if a serial port is available, send a message back to the pi
+//    delay(2000);
     command = Serial.readString(); //stores the pi message
     delay(2000);
 //    Serial.println(command);
 //    delay(2);
   }
-  Serial.print(command.substring(0));
+  Serial.print(command);
   if (command == "line")
   {
     sensorRead(); //calls the line follower function
