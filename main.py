@@ -53,7 +53,9 @@ while True:
         sleep(1)
         if code.find('ack') != -1:
             floor = front_rack_finder()[0]
+            print(floor,"rack")
         else:
+            print(floor)
             floor = floor_finder(code)[0]
         path = path_to_take[i]
         if path in path_to_take:
