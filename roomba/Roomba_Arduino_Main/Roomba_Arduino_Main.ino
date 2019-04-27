@@ -184,7 +184,7 @@ void goLeft()
 {
   Serial.println("Left");
   rightMotor->run(FORWARD);
-  rightMotor->setSpeed(150);
+  rightMotor->setSpeed(100);
   leftMotor->run(FORWARD);
   leftMotor->setSpeed(0);
   delay(2000);
@@ -197,7 +197,7 @@ void goRight()
   rightMotor->run(FORWARD);
   rightMotor->setSpeed(0);
   leftMotor->run(FORWARD);
-  leftMotor->setSpeed(150);
+  leftMotor->setSpeed(100);
   delay(2000);
   Serial.println("Right");
 }
