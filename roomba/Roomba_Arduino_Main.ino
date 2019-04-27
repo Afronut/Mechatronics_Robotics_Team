@@ -33,13 +33,13 @@ int qrlevel2 = 650; // this is the appropriate height to read a qr code on level
 
 String command;
 
-int rPin = A2;       //input pin from the IR reader
-int lPin = A3;       //input pin from the IR reader
+int rPin = A0;       //input pin from the IR reader
+int lPin = A1;       //input pin from the IR reader
 int rsensorVal = 0;  //initializes the value being read from the sensor
 int lsensorVal = 0;  //initializes the value being read from the sensor
 int turningVal1 = 0; //sets a turning value to compare the sensorValue to so it knows to turn left or right
 int turningVal2 = 0;
-int threshold = 500; //this is the threshold value being checked against sensorVal
+int threshold = 1000; //this is the threshold value being checked against sensorVal
 
 void setup()
 {
@@ -75,8 +75,8 @@ void loop()
     delay(2000);
     command = Serial.readString(); //stores the pi message
     delay(2000);
-//    Serial.println(command);
-//    delay(2);
+    Serial.println(command);
+    delay(2);
   }
   Serial.print(command.substring(0));
   if (command == "line")
@@ -84,31 +84,31 @@ void loop()
     sensorRead(); //calls the line follower function
   }
 
-  else if (command == "up")
+  if (command == "up")
   {
     stepperUp();
   }
-  else if (command == "down")
+  if (command == "down")
   {
     stepperDown();
   }
 
-  else if (command == "turn_left")
+  if (command == "turn_left")
   {
     goLeft();
   }
 
-  else if (command == "turn_right")
+  if (command == "turn_right")
   {
     goRight();
   }
 
-  else if (command == "go_straight")
+  if (command == "go_straight")
   {
     goStraight();
   }
 
-  else if (command == "check_pallets")
+  if (command == "check_pallets")
   {
     bool codeScanResult;
     forkliftPosition = setStepperLocation(forkliftPosition); //function checking if the forklift is in the bottom level location or fixes it
@@ -126,13 +126,13 @@ void loop()
     }
   }
 
-  else if (command == "turn_left_90")
+  if (command.substring(0) == "turn_left_90\n")
   {
     goLeft90();
     stopMotors();
   }
 
-  else if (command == "stop")
+  if (command.substring(0) == "stop\n")
   {
     rightMotor->run(RELEASE);
     leftMotor->run(RELEASE);
