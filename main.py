@@ -38,7 +38,7 @@ while True:
     path_to_take, inter = path_finder(start[1], end)
     print('got the path {}'.format(path_to_take))
     sleep(2)
-    arduino.write("go_straight")
+    arduino.write("line")
     print('Leaving for party')
 # #     message=arduino.readline()
 # #     if message:

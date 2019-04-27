@@ -34,13 +34,13 @@ int qrlevel2 = 650; // this is the appropriate height to read a qr code on level
 
 String command;
 
-int rPin = A0; //input pin from the IR reader
-int lPin = A1; //input pin from the IR reader
+int rPin = A2; //input pin from the IR reader
+int lPin = A3; //input pin from the IR reader
 int rsensorVal = 0;  //initializes the value being read from the sensor
 int lsensorVal = 0;  //initializes the value being read from the sensor
 int turningVal1 = 0; //sets a turning value to compare the sensorValue to so it knows to turn left or right
 int turningVal2 = 0;
-int threshold = 1000; //this is the threshold value being checked against sensorVal
+int threshold = 500; //this is the threshold value being checked against sensorVal
 
 void setup() {
   Serial.begin(115200);           // set up Serial library at 9600 bps
@@ -76,8 +76,8 @@ void loop() {
 //    Serial.println(command);
     delay(2);
   }
-  Serial.print(command.substring(0));
-  if (command.substring(0) == "line\n") {
+  Serial.print(command);
+  if (command== "line") {
     sensorRead(); //calls the line follower function
   }
     
