@@ -196,7 +196,7 @@ def path_finder(start, end):
 
 
 if __name__ == "__main__":
-    path, inter = path_finder(12, 22)
+    path, inter = path_finder(2, 11)
     print(path)
     print(inter)
     for turn in inter[1:-1]:

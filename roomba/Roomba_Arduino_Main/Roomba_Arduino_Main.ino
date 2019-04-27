@@ -79,7 +79,7 @@ void loop()
 //    delay(2);
   }
   Serial.print(command);
-  if (command.substring(0) == "line\n")
+  if (command == "line")
   {
     sensorRead(); //calls the line follower function
   }
@@ -174,9 +174,9 @@ void goStraight()
   // Drive both
   Serial.println("Straight");
   rightMotor->run(FORWARD);
-  rightMotor->setSpeed(70);
+  rightMotor->setSpeed(150);
   leftMotor->run(FORWARD);
-  leftMotor->setSpeed(70);
+  leftMotor->setSpeed(150);
   delay(2000);
 }
 
@@ -184,7 +184,7 @@ void goLeft()
 {
   Serial.println("Left");
   rightMotor->run(FORWARD);
-  rightMotor->setSpeed(200);
+  rightMotor->setSpeed(150);
   leftMotor->run(FORWARD);
   leftMotor->setSpeed(0);
   delay(2000);
@@ -197,7 +197,7 @@ void goRight()
   rightMotor->run(FORWARD);
   rightMotor->setSpeed(0);
   leftMotor->run(FORWARD);
-  leftMotor->setSpeed(200);
+  leftMotor->setSpeed(150);
   delay(2000);
   Serial.println("Right");
 }

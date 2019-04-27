@@ -54,6 +54,7 @@ while True:
         path = path_to_take[i]
         if path in path_to_take:
             if path in inter:
+                print(path)
                 for inte in inter:
                     if inte == path:
                         turn=turn_finder(path, inte)
