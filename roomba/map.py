@@ -107,7 +107,7 @@ def front_rack_finder(tag=' < x: 064.5, y: 026.0 > [RtRack 05, col 1, LfRack 25,
     for pos in position:
         if position[pos]['pos'] == (float(x[1]), float(y[1])):
             floor_id = pos
-    return (float(x[1]), float(y[1])), newcontain[0], newcontain[1], newcontain[2], newcontain[3], floor_id
+    return (float(x[1]), float(y[1])), newcontain, floor_id
 
 
 def floor_finder(floor=' < x: 049.0, y: 013.5 > plz!'):
