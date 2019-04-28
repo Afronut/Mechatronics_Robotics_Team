@@ -68,6 +68,7 @@ while True:
             floor = floor_finder(code)
             print(floor)
             start = floor[1]
+        print(i)
         path = path_to_take[i]
         if floor[0] in path_to_take:
             if path in inter:
