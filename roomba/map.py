@@ -95,6 +95,8 @@ def front_rack_finder(tag=' < x: 064.5, y: 026.0 > [RtRack 05, col 1, LfRack 25,
     x, y = xy[1:-2].split(', ')
     x = x.split(':')
     y = y.split(':')
+    position = {1: {'pos': (21, 18.5)}, 2: {'pos': (76, 18)}, 3: {'pos': (76.5, 41.5)}, 4: {'pos': (53.5, 41.5)}, 5: {'pos': (31.5, 42)}, 6: {'pos': (14, 22)},
+                7: {'pos': (13.5, 41.5)}, 8: {'pos': (14, 47.5)}, 9: {'pos': (14, 67.5)}, 10: {'pos': (14, 78)}, 11: {'pos': (14, 98)}, 12: {'pos': (14.5, 104.5)}, 13: {'pos': (31.5, 104.5)}, 14: {'pos': (41, 104.5)}, 15: {'pos': (54, 104.5)}, 16: {'pos': (61, 104.5)}, 17: {'pos': (80, 104.5)}, 18: {'pos': (80, 99)}, 19: {'pos': (80, 81)}, 20: {'pos': (76.5, 62)}, 21: {'pos': (80, 119)}, 22: {'pos': (80, 127.5)}, 23: {'pos': (61, 127)}, 24: {'pos': (41, 127)}, 25: {'pos': (21, 127.5)}, 26: {'pos': (14, 118.5)}}
     # print(contain)
     contain = contain[:-6].split(', ')
     newcontain = []
@@ -102,8 +104,10 @@ def front_rack_finder(tag=' < x: 064.5, y: 026.0 > [RtRack 05, col 1, LfRack 25,
         le = el.split()
         le = {le[0]: int(le[1])}
         newcontain.append(le)
-
-    return (float(x[1]), float(y[1])), newcontain[0], newcontain[1], newcontain[2], newcontain[3]
+    for pos in position:
+        if position[pos]['pos'] == (float(x[1]), float(y[1])):
+            floor_id = pos
+    return (float(x[1]), float(y[1])), newcontain[0], newcontain[1], newcontain[2], newcontain[3], floor_id
 
 
 def floor_finder(floor=' < x: 049.0, y: 013.5 > plz!'):
@@ -199,9 +203,9 @@ def path_finder(start, end):
 
 
 if __name__ == "__main__":
-    # print(front_rack_finder())
-    path, inter = path_finder(33, 24)
-    print(path)
-    print(inter)
-    for turn in inter[0:]:
-        print(turn_finder(path, turn))
+    print(front_rack_finder())
+    # path, inter = path_finder(33, 24)
+    # print(path)
+    # print(inter)
+    # for turn in inter[0:]:
+    #     print(turn_finder(path, turn))

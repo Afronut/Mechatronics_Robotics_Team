@@ -33,16 +33,16 @@ while True:
     pallet, rack, row, col, dock = rack_finder(assignement)
     code = barcode_funder()[0]
     if code.find('ack') != -1:
-        floor = front_rack_finder(code)[0]
-        start = floor
+        floor = front_rack_finder(code)
+        start = floor[5]
         print(floor, "rack")
     else:
-        floor = floor_finder(code)[0]
+        floor = floor_finder(code)
         print(floor)
-        start = floor
+        start = floor[1]
         print(start)
     end = rack['rack_id']
-    path_to_take, inter = path_finder(start[1], end)
+    path_to_take, inter = path_finder(start, end)
     print('got the path {}'.format(path_to_take))
     sleep(2)
     arduino.write("line")
@@ -61,15 +61,15 @@ while True:
         sleep(1)
         floor = None
         if code.find('ack') != -1:
-            floor = front_rack_finder(code)[0]
-            start = floor
+            floor = front_rack_finder(code)
+            start = floor[5]
             print(floor, "rack")
         else:
-            floor = floor_finder(code)[0]
+            floor = floor_finder(code)
             print(floor)
-            start = floor
+            start = floor[1]
         path = path_to_take[i]
-        if floor in path_to_take:
+        if floor[0] in path_to_take:
             if path in inter:
                 print(path)
                 for inte in inter:
