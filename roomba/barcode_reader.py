@@ -53,7 +53,7 @@ def barcode_funder():
             barcodeType = barcode.type
             BarCodes.append(barcodeData)
             if barcodeData:
-                sleep(3)
+                sleep(2)
                 arduino.write('line')
                 return barcodeData, csv.close(), cv2.destroyAllWindows(), vs.stop()
             # print(BarCodes)
