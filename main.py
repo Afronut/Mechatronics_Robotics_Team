@@ -39,7 +39,8 @@ while True:
     else:
         floor = floor_finder(code)[0]
         print(floor)
-        start = floor    print(start)
+        start = floor
+        print(start)
     end = rack['rack_id']
     path_to_take, inter = path_finder(start[1], end)
     print('got the path {}'.format(path_to_take))
@@ -55,9 +56,10 @@ while True:
     for i in range(len(path_to_take)):
         print(path_to_take)
         code = barcode_funder()[0]
-        start = code
+        # start = code
         print(code)
         sleep(1)
+        floor = None
         if code.find('ack') != -1:
             floor = front_rack_finder(code)[0]
             start = floor
@@ -67,7 +69,7 @@ while True:
             print(floor)
             start = floor
         path = path_to_take[i]
-        if path in path_to_take:
+        if floor in path_to_take:
             if path in inter:
                 print(path)
                 for inte in inter:
