@@ -27,20 +27,22 @@ def turn_finder(path, inter):
             if path[i][0] in rang(9, 21) and path[i-1][0] in rang(9, 21):
                 left_side = True
 
-            if path[i][0] in rang(76, 80) and path[i-1][0] in rang(76, 80):
+            elif path[i][0] in rang(76, 80) and path[i-1][0] in rang(76, 80):
                 right_side = True
 
-            if path[i][1] in rang(127.5, 133.5) and path[i-1][1] in rang(127.5, 133.5):
+            elif path[i][1] in rang(127.5, 133.5) and path[i-1][1] in rang(127.5, 133.5):
                 top_side = True
 
-            if path[i][1] in rang(104, 119) and path[i-1][1] in rang(104, 119):
+            elif path[i][1] in rang(104, 119) and path[i-1][1] in rang(104, 119):
                 lower_top_side = True
 
-            if path[i][1] in rang(41, 42) and path[i-1][1] in rang(41, 42):
+            elif path[i][1] in rang(41, 42) and path[i-1][1] in rang(41, 42):
                 high_bottom_side = True
 
-            if path[i][1] in rang(8, 19) and path[i-1][1] in rang(8, 19):
+            elif path[i][1] in rang(8, 19) and path[i-1][1] in rang(8, 19):
                 bottom_side = True
+            else:
+                middle = True
 
             # for j in range(i, -1, -1):
             j = i
@@ -49,16 +51,14 @@ def turn_finder(path, inter):
         # for j in range(i, -1, -1):
             elif (path[j][0] - path[j - 1][0]) > 0.5:
                 is_dec_x = False
-            else:
-                middle = True
 
             # print(is_dec_x)
             # print(abs(path[i][1] - path[i - 1][1]), i)
-            if (top_side or lower_top_side or high_bottom_side or bottom_side) and not is_dec_x and abs(path[i][1] - path[i - 1][1]) <= .5 and abs(path[i][1] - path[i + 1][1]) <= .5:
+            if (top_side or lower_top_side or high_bottom_side or bottom_side) and abs(path[i][1] - path[i - 1][1]) <= .5 and abs(path[i][1] - path[i + 1][1]) <= .5:
                 # print('1')
                 return 'go_straight'
-            if (right_side or left_side or middle) and is_dec_y and abs(path[i][1] - path[i - 1][1]) <= .5 and abs(path[i][1] - path[i + 1][1]) <= .5:
-                    # print('1')
+            if (right_side or left_side or middle) and abs(path[i][0] - path[i - 1][0]) <= .5 and abs(path[i][0] - path[i + 1][0]) <= .5:
+                    # print('2')
                 return 'go_straight'
             if (top_side or lower_top_side or high_bottom_side or bottom_side) and not is_dec_x and path[i][1] > path[i + 1][1]:
                 # print('2')
@@ -74,7 +74,7 @@ def turn_finder(path, inter):
                 return 'turn_right'
 
             if (right_side or left_side or middle) and is_dec_y and abs(path[i][0] - path[i - 1][0]) <= .5 and abs(path[i][0] - path[i + 1][0]) <= .5:
-                # print(6)
+                print(6)
                 return 'go_straight'
             if (right_side or left_side or middle) and is_dec_y and path[i][0] > path[i + 1][0]:
                 # print(7)
@@ -84,10 +84,10 @@ def turn_finder(path, inter):
                 return 'turn_left'
             if (right_side or left_side or middle) and not is_dec_y and path[i][0] > path[i + 1][0]:
                 # print(9)
-                return 'turn_right'
+                return 'turn_left'
             if (right_side or left_side or middle) and not is_dec_y and path[i][0] < path[i + 1][0]:
                 # print('me')
-                return 'turn_left'
+                return 'turn_right'
 
 
 def front_rack_finder(tag=' < x: 064.5, y: 026.0 > [RtRack 05, col 1, LfRack 25, col 5]'):
@@ -110,7 +110,7 @@ def floor_finder(floor=' < x: 049.0, y: 013.5 > plz!'):
     x, y = floor_pos.split(', ')
     x = x.split(':')
     y = y.split(':')
-    position = {1: {'pos': (21, 18.5)}, 2: {'pos': (76, 18)}, 3: {'pos': (76.5, 41.5)}, 4: {'pos': (43.5, 41.5)}, 5: {'pos': (31.5, 42)}, 6: {'pos': (14, 22)},
+    position = {1: {'pos': (21, 18.5)}, 2: {'pos': (76, 18)}, 3: {'pos': (76.5, 41.5)}, 4: {'pos': (53.5, 41.5)}, 5: {'pos': (31.5, 42)}, 6: {'pos': (14, 22)},
                 7: {'pos': (13.5, 41.5)}, 8: {'pos': (14, 47.5)}, 9: {'pos': (14, 67.5)}, 10: {'pos': (14, 78)}, 11: {'pos': (14, 98)}, 12: {'pos': (14.5, 104.5)}, 13: {'pos': (31.5, 104.5)}, 14: {'pos': (41, 104.5)}, 15: {'pos': (54, 104.5)}, 16: {'pos': (61, 104.5)}, 17: {'pos': (80, 104)}, 18: {'pos': (80, 99)}, 19: {'pos': (80, 81)}, 20: {'pos': (76.5, 62)}, 21: {'pos': (80, 119)}, 22: {'pos': (80, 127.5)}, 23: {'pos': (61, 127)}, 24: {'pos': (41, 127)}, 25: {'pos': (21, 127.5)}, 26: {'pos': (14, 118.5)}}
     for pos in position:
         if position[pos]['pos'] == (float(x[1]), float(y[1])):
@@ -165,7 +165,7 @@ def path_finder(start, end):
 
     edges = [(1, 6), (1, 27), (6, 27), (1, 28), (28, 29), (29, 30), (30, 2), (2, 31), (31, 3), (3, 32), (32, 4), (4, 33), (33, 5), (5, 34), (34, 35), (35, 13), (4, 37), (37, 36), (36, 15), (3, 43), (43, 20), (20, 38), (38, 19), (39, 25), (39, 26), (5, 7), (6, 7), (7, 8), (8, 9), (9, 10), (10, 11), (11, 12), (12, 13), (13, 14), (14, 15),
              (15, 16), (16, 17), (17, 18), (18, 19), (19, 20), (17, 21), (21, 22), (22, 23), (23, 24), (24, 25), (25, 26), (26, 12)]
-    position = {1: {'pos': (21, 18.5)}, 2: {'pos': (76, 18)}, 3: {'pos': (76.5, 41.5)}, 4: {'pos': (43.5, 41.5)}, 5: {'pos': (31.5, 42)}, 6: {'pos': (14, 22)},
+    position = {1: {'pos': (21, 18.5)}, 2: {'pos': (76, 18)}, 3: {'pos': (76.5, 41.5)}, 4: {'pos': (53.5, 41.5)}, 5: {'pos': (31.5, 42)}, 6: {'pos': (14, 22)},
                 7: {'pos': (13.5, 41.5)}, 8: {'pos': (14, 47.5)}, 9: {'pos': (14, 67.5)}, 10: {'pos': (14, 78)}, 11: {'pos': (14, 98)}, 12: {'pos': (14.5, 104.5)}, 13: {'pos': (31.5, 104.5)}, 14: {'pos': (41, 104.5)}, 15: {'pos': (54, 104.5)}, 16: {'pos': (61, 104.5)}, 17: {'pos': (80, 104)}, 18: {'pos': (80, 99)}, 19: {'pos': (80, 81)}, 20: {'pos': (76.5, 62)}, 21: {'pos': (80, 119)}, 22: {'pos': (80, 127.5)}, 23: {'pos': (61, 127)}, 24: {'pos': (41, 127)}, 25: {'pos': (21, 127.5)}, 26: {'pos': (14, 118.5)}, 27: {'pos': (9.5, 8)}, 28: {'pos': (46, 18.5)}, 29: {'pos': (50.5, 18.5)}, 30: {'pos': (56, 18.5)}, 31: {'pos': (76.5, 29)}, 32: {'pos': (56, 41.5)}, 33: {'pos': (50.5, 41.5)}, 34: {'pos': (31.5, 60.5)}, 35: {'pos': (31.5, 80.5)}, 36: {'pos': (54, 80.5)}, 37: {'pos': (54, 60.5)}, 38: {'pos': (88, 71.5)}, 39: {'pos': (9, 133.5)}, 43: {'pos': (76.5, 49.5)}}
     intersection = [1, 2, 3, 4, 5, 6, 7, 12, 13, 15, 17, 19, 20, 22, 25, 26]
     dock = [1, 6, 25, 26, 39, 27, 38]
@@ -190,14 +190,14 @@ def path_finder(start, end):
     # print(inter_path_position)
     # print(path_position)
     # print(path)
-    # nx.draw(g, with_labels = True, font_weight = 'bold')
+    # nx.draw(g, with_labels=True, font_weight='bold')
     # plt.show()
     return path_position, inter_path_position
 
 
 if __name__ == "__main__":
-    path, inter = path_finder(2, 11)
+    path, inter = path_finder(3, 11)
     print(path)
     print(inter)
-    for turn in inter[1:-1]:
+    for turn in inter[1:]:
         print(turn_finder(path, turn))

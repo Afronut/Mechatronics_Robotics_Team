@@ -6,7 +6,7 @@ from threading import Thread
 from roomba.server import run_server
 import roomba.setting as st
 from time import sleep
-from roomba.map import*
+from roomba.map import *
 
 # Thread(target=run_server).start()
 assignement = None
@@ -53,7 +53,7 @@ while True:
         print(code)
         sleep(1)
         if code.find('ack') != -1:
-            floor = front_rack_finder()[0]
+            floor = front_rack_finder(code)[0]
             start = floor
             print(floor, "rack")
         else:
@@ -68,12 +68,10 @@ while True:
                     if inte == path:
                         turn = turn_finder(path, inte)
                         print(turn)
-                        if turn != None:
+                        if turn is not None:
                             arduino.write(turn)
                 sleep(6)
                 arduino.write('line')
-            else:
-                pass
         else:
             path_to_take = path_finder(start, end)
             i = 0

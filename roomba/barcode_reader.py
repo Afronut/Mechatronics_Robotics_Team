@@ -6,9 +6,11 @@ import datetime
 import imutils
 import time
 import cv2
+from nanpy import SerialManager
 
 
 def barcode_funder():
+    arduino = SerialManager(device='/dev/ttyACM0')
     # construct the argument parser and parse the arguments
     ap = argparse.ArgumentParser()
     ap.add_argument("-o", "--output", type=str, default="barcodes.csv",
@@ -30,11 +32,14 @@ def barcode_funder():
         # grab the frame from the threaded video stream and resize it to
         # have a maximum width of 400 pixels
         frame = vs.read()
-        frame = imutils.resize(frame, width=700)
+        frame = imutils.resize(frame, width=600)
 
         # find the barcodes in the frame and decode each of the barcodes
         barcodes = pyzbar.decode(frame)
         # loop over the detected barcodes
+
+        if barcodes:
+            arduino.write('stop')
         for barcode in barcodes:
                         # extract the bounding box location of the barcode and draw
                         # the bounding box surrounding the barcode on the image
@@ -46,12 +51,14 @@ def barcode_funder():
             barcodeData = barcode.data.decode("utf-8")  # THIS IS IMPORTANT
             barcodeType = barcode.type
             BarCodes.append(barcodeData)
-            return barcodeData, csv.close(), cv2.destroyAllWindows(), vs.stop()
+            if barcodeData:
+                arduino.write('line')
+                return barcodeData, csv.close(), cv2.destroyAllWindows(), vs.stop()
             # print(BarCodes)
             # draw the barcode data and barcode type on the image
-            text = "{} ({})".format(barcodeData, barcodeType)
-            cv2.putText(frame, text, (x, y - 10),
-                        cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 2)
+            # text = "{} ({})".format(barcodeData, barcodeType)
+            # cv2.putText(frame, text, (x, y - 10),
+            #             cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 2)
 
             # if the barcode text is currently not in our CSV file, write
             # the timestamp + barcode to disk and update the set
@@ -61,8 +68,8 @@ def barcode_funder():
                 csv.flush()
                 found.add(barcodeData)
                 # show the output frame
-    #cv2.imshow("Barcode Scanner", frame)
-    #key = cv2.waitKey(1) & 0xFF
+    # cv2.imshow("Barcode Scanner", frame)
+    # key = cv2.waitKey(1) & 0xFF
 
     # if the `q` key was pressed, break from the loop
 
