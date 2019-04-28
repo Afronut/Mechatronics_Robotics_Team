@@ -70,6 +70,7 @@ while True:
                         print(turn)
                         if turn is not None:
                             arduino.write(turn)
+                            break
                 sleep(6)
                 arduino.write('line')
         else:
