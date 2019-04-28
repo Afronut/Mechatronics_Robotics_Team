@@ -5,6 +5,7 @@ import argparse
 import datetime
 import imutils
 import time
+from time import sleep
 import cv2
 from nanpy import SerialManager
 
@@ -52,6 +53,7 @@ def barcode_funder():
             barcodeType = barcode.type
             BarCodes.append(barcodeData)
             if barcodeData:
+                sleep(3)
                 arduino.write('line')
                 return barcodeData, csv.close(), cv2.destroyAllWindows(), vs.stop()
             # print(BarCodes)
