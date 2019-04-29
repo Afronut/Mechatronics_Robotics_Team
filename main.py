@@ -32,8 +32,14 @@ while True:
     sleep(4)
     pallet, rack, row, col, dock = rack_finder(assignement)
     code = barcode_funder()[0]
-    start = floor_finder(code)
-    print(start)
+    if code.find('ack') != -1:
+        floor = front_rack_finder(code)[0]
+        start = floor
+        print(floor, "rack")
+    else:
+        floor = floor_finder(code)[0]
+        print(floor)
+        start = floor    print(start)
     end = rack['rack_id']
     path_to_take, inter = path_finder(start[1], end)
     print('got the path {}'.format(path_to_take))
