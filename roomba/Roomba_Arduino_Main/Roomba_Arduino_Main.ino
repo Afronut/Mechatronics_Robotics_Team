@@ -154,9 +154,9 @@ void sensorRead()
 {
   lsensorVal = analogRead(lPin);
   rsensorVal = analogRead(rPin);
-  Serial.print(lsensorVal);
-  Serial.print("    ");
-  Serial.println(rsensorVal);
+  // Serial.print(lsensorVal);
+  // Serial.print("    ");
+  // Serial.println(rsensorVal);
   delay(1000);
 
   if (rsensorVal > threshold && lsensorVal > threshold)
