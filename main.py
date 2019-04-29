@@ -55,6 +55,7 @@ while True:
     # path_to_take.pop(0)
     for i in range(len(path_to_take)):
         print(path_to_take)
+        print(inter)
         code = barcode_funder()[0]
         # start = code
         print(code)
@@ -74,8 +75,8 @@ while True:
             if floor[0] in inter:
                 # print(path)
                 for inte in inter:
-                    if inte == path:
-                        turn = turn_finder(path, inte)
+                    if inte == floor[0]:
+                        turn = turn_finder(floor[0], inte)
                         print(turn)
                         if turn is not None:
                             arduino.write(turn)
