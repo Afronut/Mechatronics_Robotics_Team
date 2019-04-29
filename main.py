@@ -31,6 +31,8 @@ while True:
         print(assignement)
     sleep(4)
     pallet, rack, row, col, dock = rack_finder(assignement)
+    arduino.write("line")
+
     code = barcode_funder()[0]
     if code.find('ack') != -1:
         floor = front_rack_finder(code)
