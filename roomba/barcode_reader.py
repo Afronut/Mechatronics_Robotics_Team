@@ -52,10 +52,9 @@ def barcode_funder():
             barcodeData = barcode.data.decode("utf-8")  # THIS IS IMPORTANT
             barcodeType = barcode.type
             BarCodes.append(barcodeData)
-            if barcodeData:
-                sleep(2)
-                arduino.write('line')
-                return barcodeData, csv.close(), cv2.destroyAllWindows(), vs.stop()
+            sleep(2)
+            arduino.write('line')
+            return barcodeData, csv.close(), cv2.destroyAllWindows(), vs.stop()
             # print(BarCodes)
             # draw the barcode data and barcode type on the image
             # text = "{} ({})".format(barcodeData, barcodeType)
