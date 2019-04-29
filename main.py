@@ -81,7 +81,7 @@ while True:
                         if turn is not None or turn != 'None':
                             print("turn is{}".format(turn))
                             arduino.write(str(turn))
-                            sleep(6)
+                            sleep(10)
                             arduino.write('line')
                             break
                 arduino.write('line')
