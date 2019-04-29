@@ -77,10 +77,10 @@ while True:
                 for inte in inter:
                     if inte == floor[0]:
                         turn = turn_finder(path_to_take, inte)
-                        print("turn is {}".format(turn))
+                        # print("turn is {}".format(turn))
                         if turn is not None or turn != 'None':
                             print("turn is{}".format(turn))
-                            sleep(3)
+                            sleep(6)
                             arduino.write(str(turn))
                             sleep(3)
                             message = arduino.readline()
