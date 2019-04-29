@@ -96,3 +96,4 @@ while True:
         else:
             path_to_take, inter = path_finder(start, end)
             i = 0
+            arduino.write('line')
