@@ -76,7 +76,7 @@ while True:
                 # print(path)
                 for inte in inter:
                     if inte == floor[0]:
-                        turn = turn_finder(floor[0], inte)
+                        turn = turn_finder(path_to_take, inte)
                         print("turn is{}".format(turn))
                         if turn is None or turn == 'None':
                             arduino.write('stop')
