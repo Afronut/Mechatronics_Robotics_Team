@@ -179,9 +179,9 @@ void goStraight()
   // Drive both
   // Serial.println("Straight");
   rightMotor->run(FORWARD);
-  rightMotor->setSpeed(100);
+  rightMotor->setSpeed(50);
   leftMotor->run(FORWARD);
-  leftMotor->setSpeed(93);
+  leftMotor->setSpeed(43);
   delay(2000);
 }
 
@@ -189,9 +189,9 @@ void goLeft()
 {
   // Serial.println("Left");
   rightMotor->run(FORWARD);
-  rightMotor->setSpeed(90);
+  rightMotor->setSpeed(50);
   leftMotor->run(FORWARD);
-  leftMotor->setSpeed(15);
+  leftMotor->setSpeed(3);
   delay(1500);
   Serial.println("Left");
 }
@@ -200,9 +200,9 @@ void goRight()
 {
   // Serial.println("Right");
   rightMotor->run(FORWARD);
-  rightMotor->setSpeed(15);
+  rightMotor->setSpeed(3);
   leftMotor->run(FORWARD);
-  leftMotor->setSpeed(90);
+  leftMotor->setSpeed(50);
   delay(1500);
   // Serial.println("Right");
 }
@@ -308,11 +308,11 @@ void stepperUp()
 // FUNCTION FOR A 90 DEGREE LEFT TURN
 void goLeft90()
 {
-  Serial.println("Left 90");
+  //Serial.println("Left 90");
   rightMotor->run(FORWARD);
-  rightMotor->setSpeed(150);
+  rightMotor->setSpeed(50);
   leftMotor->run(BACKWARD);
-  leftMotor->setSpeed(150);
+  leftMotor->setSpeed(50);
   delay(500);
   sensorRead();
 //  Serial.println("Left");
@@ -321,11 +321,11 @@ void goLeft90()
 // FUNCTION FOR A 90 DEGREE RIGHT TURN
 void goRight90()
 {
-  Serial.println("Right 90");
-  rightMotor->run(FORWARD);
-  rightMotor->setSpeed(0);
+  //Serial.println("Right 90");
+  rightMotor->run(BACKWARD);
+  rightMotor->setSpeed(50);
   leftMotor->run(FORWARD);
-  leftMotor->setSpeed(70);
+  leftMotor->setSpeed(50);
   delay(1000);
   sensorRead();
   // Serial.println("Right");
