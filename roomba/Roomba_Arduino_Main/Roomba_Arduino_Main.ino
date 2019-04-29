@@ -314,6 +314,7 @@ void goLeft90()
   leftMotor->run(BACKWARD);
   leftMotor->setSpeed(150);
   delay(500);
+  sensorRead();
 //  Serial.println("Left");
 }
 
@@ -326,6 +327,7 @@ void goRight90()
   leftMotor->run(FORWARD);
   leftMotor->setSpeed(70);
   delay(1000);
+  sensorRead();
   // Serial.println("Right");
 }
 

@@ -87,7 +87,7 @@ while True:
                             sleep(6)
                             arduino.flush_input()
                             arduino.write(str(turn))
-                            sleep(8)
+                            sleep(3)
                             arduino.write('line')
                             # message = arduino.readline()
                             # print(message)
