@@ -90,12 +90,13 @@ def turn_finder(path, inter):
                 return 'turn_right'
 
 
-def front_rack_finder(tag=' < x: 064.5, y: 026.0 > [RtRack 05, col 1, LfRack 25, col 5]'):
+def front_rack_finder(tag=' < x: 064.5, y: 026.0 > [RtRack 05, col 1, LfRack 25, col 5] !pz!'):
     xy, contain = tag.split('[')
     x, y = xy[1:-2].split(', ')
     x = x.split(':')
     y = y.split(':')
-    contain = contain[:-1].split(', ')
+    # print(contain)
+    contain = contain[:-6].split(', ')
     newcontain = []
     for el in contain:
         le = el.split()
@@ -196,8 +197,9 @@ def path_finder(start, end):
 
 
 if __name__ == "__main__":
-    path, inter = path_finder(7, 21)
-    print(path)
-    print(inter)
-    for turn in inter[1:]:
-        print(turn_finder(path, turn))
+    print(front_rack_finder())
+    # path, inter = path_finder(7, 21)
+    # print(path)
+    # print(inter)
+    # for turn in inter[1:]:
+    #     print(turn_finder(path, turn))
