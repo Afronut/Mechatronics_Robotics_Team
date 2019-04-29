@@ -11,7 +11,7 @@ from nanpy import SerialManager
 
 
 def barcode_funder():
-    arduino = SerialManager(device='/dev/ttyACM0')
+    arduino = SerialManager(device='/dev/ttyACM1')
     # construct the argument parser and parse the arguments
     ap = argparse.ArgumentParser()
     ap.add_argument("-o", "--output", type=str, default="barcodes.csv",
