@@ -129,12 +129,12 @@ void loop()
   else if (command == "turn_left_90")
   {
     goLeft90();
-    stopMotors();
+    command = 'line';
   }
   else if (command == "turn_right_90")
   {
     goRight90();
-    stopMotors();
+    command = 'line';
   }
 
   else if (command == "stop")
