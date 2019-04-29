@@ -18,7 +18,7 @@ except:
 while True:
     # Import required modules
 
-    #connection.write('Hi there')
+    # connection.write('Hi there')
     # sleep(2)
     # message=connection.readline()
     # if message:
@@ -77,16 +77,18 @@ while True:
                 for inte in inter:
                     if inte == floor[0]:
                         turn = turn_finder(path_to_take, inte)
-                        print("turn is{}".format(turn))
+                        print("turn is {}".format(turn))
                         if turn is None or turn == 'None':
                             arduino.write('stop')
                         else:
-                            print("turn is{}".format(turn))
+                            print("turn is{}".format(str(turn))
                             arduino.write(turn)
+                            sleep(3)
+                            print(arduino.readline())
                             break
                 sleep(6)
                 arduino.write('line')
         else:
-            path_to_take, inter = path_finder(start, end)
-            i = 0
+            path_to_take, inter=path_finder(start, end)
+            i=0
         sleep(4)
