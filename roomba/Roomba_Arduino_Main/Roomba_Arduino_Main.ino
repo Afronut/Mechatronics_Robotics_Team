@@ -78,7 +78,7 @@ void loop()
     //    Serial.println(command);
     //    delay(2);
   }
-  Serial.print(command);
+  // Serial.print(command);
   if (command == "line")
   {
     sensorRead(); //calls the line follower function
@@ -177,7 +177,7 @@ void sensorRead()
 void goStraight()
 {
   // Drive both
-  Serial.println("Straight");
+  // Serial.println("Straight");
   rightMotor->run(FORWARD);
   rightMotor->setSpeed(100);
   leftMotor->run(FORWARD);
@@ -187,7 +187,7 @@ void goStraight()
 
 void goLeft()
 {
-  Serial.println("Left");
+  // Serial.println("Left");
   rightMotor->run(FORWARD);
   rightMotor->setSpeed(90);
   leftMotor->run(FORWARD);
@@ -198,33 +198,33 @@ void goLeft()
 
 void goRight()
 {
-  Serial.println("Right");
+  // Serial.println("Right");
   rightMotor->run(FORWARD);
   rightMotor->setSpeed(15);
   leftMotor->run(FORWARD);
   leftMotor->setSpeed(90);
   delay(1500);
-  Serial.println("Right");
+  // Serial.println("Right");
 }
 
 int setStepperLocation(int actual)
 {
   int changedDistance;
-  Serial.print("The state is: ");
+  // Serial.print("The state is: ");
   Serial.println(actual);
   if (qrlevel1 == actual)
   {
-    Serial.println("The forklift is already at qr level 1");
+    // Serial.println("The forklift is already at qr level 1");
     return actual;
   }
   else
   {
-    Serial.println("Stepper moving forklift to level 1");
+    // Serial.println("Stepper moving forklift to level 1");
     changedDistance = actual - qrlevel1;
-    Serial.print("Actual: ");
-    Serial.println(actual);
-    Serial.print("distance back to level 1: ");
-    Serial.println(changedDistance);
+    // Serial.print("Actual: ");
+    // Serial.println(actual);
+    // Serial.print("distance back to level 1: ");
+    // Serial.println(changedDistance);
     if (changedDistance > 0)
     {
       stepperMotor->step(changedDistance, BACKWARD, DOUBLE);
@@ -243,7 +243,7 @@ bool stepperScan(int forkLocation)
 {
   String palletScanResult;        //String that will be received whether or not pallet QR code was found
   String forkliftExtensionResult; //String that will be received when the forklift is extended
-  Serial.write("scan for pallet code");
+  // Serial.write("scan for pallet code");
   delay(3000);
   palletScanResult = Serial.readString();
   if (palletScanResult == "pallet code found")
@@ -326,7 +326,7 @@ void goRight90()
   leftMotor->run(FORWARD);
   leftMotor->setSpeed(70);
   delay(2000);
-  Serial.println("Right");
+  // Serial.println("Right");
 }
 
 void stopMotors()

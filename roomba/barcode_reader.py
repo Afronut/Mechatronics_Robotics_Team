@@ -40,7 +40,10 @@ def barcode_funder():
         # loop over the detected barcodes
 
         if barcodes:
+            arduino.flush_input()
+            sleep(3)
             arduino.write('stop')
+            sleep(3)
         for barcode in barcodes:
                         # extract the bounding box location of the barcode and draw
                         # the bounding box surrounding the barcode on the image
