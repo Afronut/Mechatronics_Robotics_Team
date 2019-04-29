@@ -40,10 +40,7 @@ def barcode_funder():
         # loop over the detected barcodes
 
         if barcodes:
-            arduino.flush_input()
-            sleep(3)
             arduino.write('stop')
-            sleep(3)
         for barcode in barcodes:
                         # extract the bounding box location of the barcode and draw
                         # the bounding box surrounding the barcode on the image
@@ -56,7 +53,6 @@ def barcode_funder():
             barcodeType = barcode.type
             BarCodes.append(barcodeData)
             sleep(2)
-            arduino.write('line')
             return barcodeData, csv.close(), cv2.destroyAllWindows(), vs.stop()
             # print(BarCodes)
             # draw the barcode data and barcode type on the image
