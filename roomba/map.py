@@ -62,32 +62,32 @@ def turn_finder(path, inter):
                 return 'go_straight'
             if (top_side or lower_top_side or high_bottom_side or bottom_side) and not is_dec_x and path[i][1] > path[i + 1][1]:
                 # print('2')
-                return 'turn_right'
+                return 'turn_right_90'
             if (top_side or lower_top_side or high_bottom_side or bottom_side) and is_dec_x and path[i][1] > path[i + 1][1]:
                 # print('3')
-                return 'turn_left'
+                return 'turn_left_90'
             if (top_side or lower_top_side or high_bottom_side or bottom_side) and not is_dec_x and path[i][1] < path[i + 1][1]:
                 # print('4')
-                return 'turn_left'
+                return 'turn_left_90'
             if (top_side or lower_top_side or high_bottom_side or bottom_side) and is_dec_x and path[i][1] < path[i + 1][1]:
                 # print('5')
-                return 'turn_right'
+                return 'turn_right_90'
 
             if (right_side or left_side or middle) and is_dec_y and abs(path[i][0] - path[i - 1][0]) <= .5 and abs(path[i][0] - path[i + 1][0]) <= .5:
                 print(6)
                 return 'go_straight'
             if (right_side or left_side or middle) and is_dec_y and path[i][0] > path[i + 1][0]:
                 # print(7)
-                return 'turn_right'
+                return 'turn_right_90'
             if (right_side or left_side or middle) and is_dec_y and path[i][0] < path[i + 1][0]:
                 # print(8)
-                return 'turn_left'
+                return 'turn_left_90'
             if (right_side or left_side or middle) and not is_dec_y and path[i][0] > path[i + 1][0]:
                 # print(9)
-                return 'turn_left'
+                return 'turn_left_90'
             if (right_side or left_side or middle) and not is_dec_y and path[i][0] < path[i + 1][0]:
                 # print('me')
-                return 'turn_right'
+                return 'turn_right_90'
 
 
 def front_rack_finder(tag=' < x: 064.5, y: 026.0 > [RtRack 05, col 1, LfRack 25, col 5] !pz!'):
