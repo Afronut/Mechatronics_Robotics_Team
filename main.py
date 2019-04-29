@@ -18,7 +18,7 @@ except:
 while True:
     # Import required modules
 
-    # connection.write('Hi there')
+    #connection.write('Hi there')
     # sleep(2)
     # message=connection.readline()
     # if message:
@@ -81,14 +81,15 @@ while True:
                         if turn is None or turn == 'None':
                             arduino.write('stop')
                         else:
-                            print("turn is{}".format(str(turn))
-                            arduino.write(turn)
+                            print("turn is{}".format(turn))
+                            arduino.write(str(turn))
                             sleep(3)
-                            print(arduino.readline())
+                            message = arduino.readline()
+                            print(message)
                             break
                 sleep(6)
                 arduino.write('line')
         else:
-            path_to_take, inter=path_finder(start, end)
-            i=0
+            path_to_take, inter = path_finder(start, end)
+            i = 0
         sleep(4)
