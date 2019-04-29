@@ -96,3 +96,7 @@ while True:
             path_to_take, inter = path_finder(start, end)
             i = 0
             arduino.write('line')
+    sleep(2)
+    arduino.write('stop')
+    sleep(4)
+    arduino.write('check_pallets')
