@@ -81,9 +81,11 @@ while True:
                         if turn is not None or turn != 'None':
                             print("turn is{}".format(turn))
                             arduino.write(str(turn))
-                            sleep(10)
-                            arduino.write('line')
+                            sleep(3)
+                            message = arduino.readline()
+                            print(message)
                             break
+                sleep(6)
                 arduino.write('line')
         else:
             path_to_take, inter = path_finder(start, end)
