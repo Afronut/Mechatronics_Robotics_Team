@@ -39,11 +39,11 @@ int rsensorVal = 0;  //initializes the value being read from the sensor
 int lsensorVal = 0;  //initializes the value being read from the sensor
 int turningVal1 = 0; //sets a turning value to compare the sensorValue to so it knows to turn left or right
 int turningVal2 = 0;
-int threshold = 970; //this is the threshold value being checked against sensorVal
+int threshold = 980; //this is the threshold value being checked against sensorVal
 
 void setup()
 {
-  // Serial.begin(115200);  // BAUD RATE FOR RASPBERRY PI
+  // Serial.begin(9600);  // BAUD RATE FOR RASPBERRY PI
   Serial.begin(115200);
   Serial.println("Main Roomba Code!");
   pinMode(rPin, INPUT);
@@ -176,7 +176,7 @@ void goStraight()
   rightMotor->run(FORWARD);
   rightMotor->setSpeed(100);
   leftMotor->run(FORWARD);
-  leftMotor->setSpeed(100);
+  leftMotor->setSpeed(93);
   delay(2000);
 }
 
@@ -186,8 +186,8 @@ void goLeft()
   rightMotor->run(FORWARD);
   rightMotor->setSpeed(90);
   leftMotor->run(FORWARD);
-  leftMotor->setSpeed(0);
-  delay(4000);
+  leftMotor->setSpeed(15);
+  delay(1500);
   Serial.println("Left");
 }
 
@@ -195,10 +195,10 @@ void goRight()
 {
   Serial.println("Right");
   rightMotor->run(FORWARD);
-  rightMotor->setSpeed(0);
+  rightMotor->setSpeed(15);
   leftMotor->run(FORWARD);
   leftMotor->setSpeed(90);
-  delay(4000);
+  delay(1500);
   Serial.println("Right");
 }
 

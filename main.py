@@ -83,6 +83,6 @@ while True:
                 sleep(6)
                 arduino.write('line')
         else:
-            path_to_take = path_finder(start, end)
+            path_to_take, inter = path_finder(start, end)
             i = 0
         sleep(4)
