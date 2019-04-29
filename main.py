@@ -77,7 +77,7 @@ while True:
                 for inte in inter:
                     if inte == floor[0]:
                         turn = turn_finder(floor[0], inte)
-                        print(turn)
+                        print("turn is{}".format(turn))
                         if turn is not None:
                             arduino.write(turn)
                             break
