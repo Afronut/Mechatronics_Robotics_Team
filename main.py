@@ -11,7 +11,7 @@ from roomba.map import *
 # Thread(target=run_server).start()
 assignement = None
 try:
-    arduino = SerialManager(device='/dev/ttyACM1')
+    arduino = SerialManager(device='/dev/ttyACM0')
 except:
     pass
 
