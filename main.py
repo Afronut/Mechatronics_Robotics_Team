@@ -99,4 +99,6 @@ while True:
     sleep(2)
     arduino.write('stop')
     sleep(4)
+    arduino.write('turn_left_90')
+    sleep(4)
     arduino.write('check_pallets')
