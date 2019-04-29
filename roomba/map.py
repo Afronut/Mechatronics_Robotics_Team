@@ -203,9 +203,9 @@ def path_finder(start, end):
 
 
 if __name__ == "__main__":
-    print(front_rack_finder())
-    # path, inter = path_finder(33, 24)
-    # print(path)
-    # print(inter)
-    # for turn in inter[0:]:
-    #     print(turn_finder(path, turn))
+    # print(front_rack_finder())
+    path, inter = path_finder(19, 11)
+    print(path)
+    print(inter)
+    for turn in inter[0:]:
+        print(turn_finder(path, turn))
