@@ -71,12 +71,12 @@ void loop()
 
   if (Serial.available())
   {
-//    Serial.println("received"); //if a serial port is available, send a message back to the pi
-//    delay(2000);
+    //    Serial.println("received"); //if a serial port is available, send a message back to the pi
+    //    delay(2000);
     command = Serial.readString(); //stores the pi message
     delay(2000);
-//    Serial.println(command);
-//    delay(2);
+    //    Serial.println(command);
+    //    delay(2);
   }
   Serial.print(command);
   if (command == "line")
@@ -129,6 +129,11 @@ void loop()
   else if (command == "turn_left_90")
   {
     goLeft90();
+    stopMotors();
+  }
+  else if (command == "turn_right_90")
+  {
+    goRight90();
     stopMotors();
   }
 

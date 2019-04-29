@@ -71,8 +71,8 @@ while True:
         print(i)
         path = path_to_take[i]
         if floor[0] in path_to_take:
-            if path in inter:
-                print(path)
+            if floor[0] in inter:
+                # print(path)
                 for inte in inter:
                     if inte == path:
                         turn = turn_finder(path, inte)
