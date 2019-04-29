@@ -313,8 +313,8 @@ void goLeft90()
   rightMotor->setSpeed(150);
   leftMotor->run(BACKWARD);
   leftMotor->setSpeed(150);
-  delay(2000);
-  Serial.println("Left");
+  delay(500);
+//  Serial.println("Left");
 }
 
 // FUNCTION FOR A 90 DEGREE RIGHT TURN
@@ -325,7 +325,7 @@ void goRight90()
   rightMotor->setSpeed(0);
   leftMotor->run(FORWARD);
   leftMotor->setSpeed(70);
-  delay(2000);
+  delay(1000);
   // Serial.println("Right");
 }
 

@@ -87,12 +87,11 @@ while True:
                             sleep(6)
                             arduino.flush_input()
                             arduino.write(str(turn))
-                            sleep(6)
+                            sleep(8)
+                            arduino.write('line')
                             # message = arduino.readline()
                             # print(message)
                             break
-                sleep(6)
-                arduino.write('line')
         else:
             path_to_take, inter = path_finder(start, end)
             i = 0
