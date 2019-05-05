@@ -43,8 +43,8 @@ int threshold = 1000; //this is the threshold value being checked against sensor
 
 void setup()
 {
-  // Serial.begin(115200);  // BAUD RATE FOR RASPBERRY PI
-  Serial.begin(9600);
+  Serial.begin(115200);  // BAUD RATE FOR RASPBERRY PI
+  // Serial.begin(9600);
   Serial.println("Main Roomba Code!");
   pinMode(rPin, INPUT);
   pinMode(lPin, INPUT);
